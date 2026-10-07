@@ -1,14 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="./output.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./../dist/output.css" />
     <title>Morpion</title>
-</head>
+  </head>
 
-<body>
-    <h1>Bienvenu dans le jeu du Morpion</h1>
-
-</body>
-
+  <body class="items-center justify-center text-center">
+    <h1 class="flex items-center justify-center">
+      Bienvenu dans le jeu du Morpion
+    </h1>
+    <p class="mt-5">Combien de joueur voulez-vous jouer ?</p>
+    <div class="inline-flex flex-row gap-8 mt-4">
+      <button class="inline-flex border font-medium font-sans text-center transition-all duration-300 ease-in disabled:opacity-50 disabled:shadow-none disabled:cursor-not-allowed data-[shape=pill]:rounded-full data-[width=full]:w-full focus:shadow-none text-sm rounded-md py-2 px-4 shadow-sm hover:shadow-md bg-transparent border-slate-800 text-slate-800 hover:bg-slate-800 hover:text-slate-50">1 Joueur</button>
+      <button class="inline-flex border font-medium font-sans text-center transition-all duration-300 ease-in disabled:opacity-50 disabled:shadow-none disabled:cursor-not-allowed data-[shape=pill]:rounded-full data-[width=full]:w-full focus:shadow-none text-sm rounded-md py-2 px-4 shadow-sm hover:shadow-md bg-transparent border-slate-800 text-slate-800 hover:bg-slate-800 hover:text-slate-50">2 Joueurs</button>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="../dist/Morpion.js"></script>
+  </body>
 </html>
