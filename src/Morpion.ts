@@ -15,11 +15,13 @@ class Morpion {
 
 		container.innerHTML = "";
 		container.className = "grid grid-cols-3 w-fit mx-auto mt-8";
+		const backgroundStyleButton: string =
+			"w-24 h-24 border border-gray-500 text-3xl font-bold bg-white hover:bg-gray-100";
 
 		for (let row = 0; row < 3; row++) {
 			for (let col = 0; col < 3; col++) {
 				const button = document.createElement("button");
-				button.className = "w-24 h-24 border border-gray-500 text-3xl font-bold bg-white hover:bg-gray-100";
+				button.className = backgroundStyleButton;
 
 				button.addEventListener("click", () => {
 					if (this.gameOver) {
