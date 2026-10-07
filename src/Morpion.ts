@@ -1,9 +1,9 @@
 import { Case } from "./Case.js";
 
 class Morpion {
-	private readonly grid: Case[][] = Array.from({ length: 3 }, () => new Array(3).fill(Case.VOID));
+	private grid: Case[][] = Array.from({ length: 3 }, () => new Array(3).fill(Case.VOID));
 	private currentPlayer: Case.CIRCLE | Case.CROSS = Case.CIRCLE;
-	private isWinner: boolean = false;
+	private gameOver: boolean = false;
 
 	createButtonGrid(): void {
 		let container = document.getElementById("root");
@@ -40,7 +40,10 @@ class Morpion {
 						this.messageWinner();
 						return;
 					}
-
+					if (this.isDraw()) {
+						this.endGame("🤝 Match nul !");
+						return;
+					}
 					this.currentPlayer = this.currentPlayer === Case.CIRCLE ? Case.CROSS : Case.CIRCLE;
 				});
 
@@ -89,13 +92,29 @@ class Morpion {
 		return null;
 	}
 
-	messageWinner() {
-		this.isWinner = true;
+	private isDraw(): boolean {
+		return this.grid.every((row) => row.every((cell) => cell !== Case.VOID)) && this.checkWinner() === null;
+	}
 
-		const message = document.getElementById("message");
-		if (message) {
-			message.textContent = "🎉 Player " + this.currentPlayer + " wins!";
+	private endGame(message: string): void {
+		this.gameOver = true;
+
+		const messageElement = document.getElementById("message");
+
+		if (messageElement) {
+			messageElement.textContent = message;
+			messageElement.classList.remove("hidden");
 		}
+
+		document.querySelectorAll("#root button").forEach((button) => {
+			const btn = button as HTMLButtonElement;
+
+			btn.disabled = true;
+			btn.classList.add("opacity-50", "cursor-not-allowed");
+			btn.classList.remove("hover:bg-gray-100");
+		});
+
+		document.getElementById("restart")?.classList.remove("hidden");
 	}
 }
 
