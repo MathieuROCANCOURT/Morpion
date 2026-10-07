@@ -22,25 +22,22 @@ class Morpion {
 				button.className = "w-24 h-24 border border-gray-500 text-3xl font-bold bg-white hover:bg-gray-100";
 
 				button.addEventListener("click", () => {
+					if (this.isWinner) {
+						this.messageWinner();
+						return;
+					}
+
 					const currentRow = this.grid[row];
 
 					if (currentRow?.[col] !== Case.VOID) {
 						return;
 					}
 
-					if (this.isWinner) {
-						alert(`🎉 Player ${this.checkWinner()} wins!`);
-						return;
-					}
-
 					currentRow[col] = this.currentPlayer;
 					button.textContent = this.currentPlayer;
 
-					const winner = this.checkWinner();
-
-					if (winner) {
-						this.isWinner = true;
-						alert(`🎉 Player ${winner} wins!`);
+					if (this.checkWinner()) {
+						this.messageWinner();
 						return;
 					}
 
@@ -90,6 +87,15 @@ class Morpion {
 		}
 
 		return null;
+	}
+
+	messageWinner() {
+		this.isWinner = true;
+
+		const message = document.getElementById("message");
+		if (message) {
+			message.textContent = "🎉 Player " + this.currentPlayer + " wins!";
+		}
 	}
 }
 
