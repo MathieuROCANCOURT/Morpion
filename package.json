@@ -12,6 +12,7 @@
 		"format:check": "prettier --check \"**/*.{css,ts,js,json,md}\""
 	},
 	"dependencies": {
+		"@typescript/typescript6": "^6.0.2",
 		"globals": "^17.13.0",
 		"typescript": "^7.0.2"
 	}
