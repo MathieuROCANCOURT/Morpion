@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
@@ -11,13 +11,9 @@
     <h1 class="flex items-center justify-center">
       Bienvenu dans le jeu du Morpion
     </h1>
-    <p class="mt-5">Combien de joueur voulez-vous jouer ?</p>
-    <div class="inline-flex flex-row gap-8 mt-4">
-      <button class="inline-flex border font-medium font-sans text-center transition-all duration-300 ease-in disabled:opacity-50 disabled:shadow-none disabled:cursor-not-allowed data-[shape=pill]:rounded-full data-[width=full]:w-full focus:shadow-none text-sm rounded-md py-2 px-4 shadow-sm hover:shadow-md bg-transparent border-slate-800 text-slate-800 hover:bg-slate-800 hover:text-slate-50">1 Joueur</button>
-      <button class="inline-flex border font-medium font-sans text-center transition-all duration-300 ease-in disabled:opacity-50 disabled:shadow-none disabled:cursor-not-allowed data-[shape=pill]:rounded-full data-[width=full]:w-full focus:shadow-none text-sm rounded-md py-2 px-4 shadow-sm hover:shadow-md bg-transparent border-slate-800 text-slate-800 hover:bg-slate-800 hover:text-slate-50">2 Joueurs</button>
-    </div>
     <p id="message" class="mt-4 text-xl font-bold"></p>
     <div id="root"></div>
     <script type="module" src="../dist/Morpion.js"></script>
+    <button class="border font-medium font-sans text-center transition-all duration-300 ease-in disabled:opacity-50 disabled:shadow-none disabled:cursor-not-allowed data-[shape=pill]:rounded-full data-[width=full]:w-full text-sm rounded-md py-2 px-4 hover:shadow-md bg-transparent border-slate-800 text-slate-800 hover:bg-slate-800 hover:text-slate-50 hidden" id="restart">Rejouer</button>
   </body>
 </html>

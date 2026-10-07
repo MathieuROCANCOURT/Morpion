@@ -116,9 +116,28 @@ class Morpion {
 
 		document.getElementById("restart")?.classList.remove("hidden");
 	}
+
+	public resetGame(): void {
+		this.grid = Array.from({ length: 3 }, () => new Array(3).fill(Case.VOID));
+
+		this.currentPlayer = Case.CIRCLE;
+		this.gameOver = false;
+
+		document.getElementById("message")!.textContent = "";
+		document.getElementById("restart")?.classList.add("hidden");
+
+		this.createButtonGrid();
+	}
 }
 
 document.addEventListener("DOMContentLoaded", () => {
 	const morpion = new Morpion();
 	morpion.createButtonGrid();
+
+	let textRestart = document.getElementById("restart");
+	if (textRestart) {
+		textRestart.addEventListener("click", () => {
+			morpion.resetGame();
+		});
+	}
 });
