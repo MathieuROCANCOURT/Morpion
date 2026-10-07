@@ -1,22 +1,18 @@
 @import "tailwindcss";
 
 @layer base {
-    p {
-        font-size: var(--text-base);
-        color: var(--color-gray-700);
-    }
+	p {
+		font-size: var(--text-base);
+		color: var(--color-gray-700);
+	}
 
-    h1 {
-        font-size: var(--text-3xl);
-        font-weight: var(--font-weight-semibold);
-    }
+	h1 {
+		font-size: var(--text-3xl);
+		font-weight: var(--font-weight-semibold);
+	}
 
-    h2 {
-        font-size: var(--text-2xl);
-        font-weight: var(--font-weight-semibold);
-    }
-
-    button {
-        padding: calc(var(--spacing) * 4) calc(var(--spacing) * 16);
-    }
+	h2 {
+		font-size: var(--text-2xl);
+		font-weight: var(--font-weight-semibold);
+	}
 }
