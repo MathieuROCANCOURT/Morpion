@@ -38,6 +38,9 @@ class Morpion {
 
 					if (this.checkWinner()) {
 						this.messageWinner();
+					if (winner) {
+						this.gameOver = true;
+						this.endGame("🎉 Le joueur " + winner + " a gagné !");
 						return;
 					}
 					if (this.isDraw()) {
