@@ -22,8 +22,7 @@ class Morpion {
 				button.className = "w-24 h-24 border border-gray-500 text-3xl font-bold bg-white hover:bg-gray-100";
 
 				button.addEventListener("click", () => {
-					if (this.isWinner) {
-						this.messageWinner();
+					if (this.gameOver) {
 						return;
 					}
 
@@ -36,8 +35,16 @@ class Morpion {
 					currentRow[col] = this.currentPlayer;
 					button.textContent = this.currentPlayer;
 
-					if (this.checkWinner()) {
-						this.messageWinner();
+					button.classList.remove("bg-white", "hover:bg-gray-100");
+					if (this.currentPlayer === Case.CIRCLE) {
+						button.classList.add("bg-blue-500");
+					}
+					if (this.currentPlayer === Case.CROSS) {
+						button.classList.add("bg-green-500");
+					}
+
+					const winner = this.checkWinner();
+
 					if (winner) {
 						this.gameOver = true;
 						this.endGame("🎉 Le joueur " + winner + " a gagné !");
