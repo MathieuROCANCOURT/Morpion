@@ -14,7 +14,7 @@ class Morpion {
 		}
 
 		container.innerHTML = "";
-		container.className = "grid grid-cols-3 w-fit mx-auto mt-8";
+		container.className = "grid grid-cols-[1fr_1fr_1fr] flex w-fit h-fit mx-auto mt-8 mb-4";
 		const backgroundStyleButton: string =
 			"w-24 h-24 border border-gray-500 text-3xl font-bold bg-white hover:bg-gray-100";
 
@@ -64,7 +64,7 @@ class Morpion {
 		}
 	}
 
-	checkWinner(): Case | null {
+	private checkWinner(): Case | null {
 		for (let row = 0; row < 3; row++) {
 			if (
 				this.grid[row]![0] !== Case.VOID &&
